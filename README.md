@@ -1,10 +1,10 @@
-# example
+# SAY HELLO TO JI'S LITTLE FRIEND!
 
-> sample framework for easy startup
+> M'kay, this is a module rendering the modal box in review section
 
 ## Related Projects
 
-  - (to be filled)
+  - https://github.com/RealExpensiveItems/Jiyoon-Service
 
 ## Table of Contents
 
@@ -14,13 +14,15 @@
 
 ## Usage
 
-> No API provided by this module so far
+> No API provided by this module
+- This module need the currently displayed item's name, image url, seller info and type of product
 
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
+- MySql
 
 ## Development
 

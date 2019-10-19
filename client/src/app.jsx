@@ -1,33 +1,54 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import axios from "axios";
+import axios from "axios";
+
+import Massage from "./massage";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      load: false
+      load: false,
+      item:"Say Hello to Ji's Little Friend %itemname",
+      seller:"Forest %seller",
+      imgurl:"https://hsm.utimaco.com/wp-content/uploads/2017/09/Applications_Grey_RGB_Random_Number_Generation-300x300.png",
+      fit: true
     };
   }
   componentDidMount() {
-    this.setState({
-      load: true
-    });
-    // axios.get("/").then(
-    //   data => {
-    //     // console.log(data.data);
-    //     this.setState({
-    //       load: true
-    //     });
-    //   },
-    //   err => console.error(err)
-    // );
+    //API: get item name and img url and type
+    //or inhert from the parent node
+    var type="pants";
+    axios.get("/modal/"+type).then(
+      data => {
+        // console.log(data.data);
+        this.setState({
+          fit: data.data,
+          load: true
+        });
+      },
+      err => console.error(err)
+    );
+  }
+  openModal(e){
+    e.preventDefault();
+    document.getElementById("curtain").style.display = "block";
+    document.getElementById("modal").style.display = "block";
   }
   render() {
-    return (
-      <div id = "content" >
-        {this.state.load ? <div>Hello World</div> : <div></div>}
+    return (this.state.load ?
+      <div id = "base">
+        <button onClick={this.openModal.bind(this)}>modal test</button>
+        <div id="curtain"/>
+        <div id="modal">
+          <div id="sidebar">
+            <img id="itemImg" src={this.state.imgurl} />
+            <p id="itemInfo">{this.state.seller+" - "+this.state.item}</p>
+          </div>
+          <Massage item={this.state.item} fit={this.state.fit}/>
+        </div>
       </div>
+      : <div className="box"></div>/* need a spinner here*/
     );
   }
 }

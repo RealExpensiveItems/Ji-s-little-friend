@@ -1,14 +1,16 @@
-DROP DATABASE IF EXISTS db_name;
-CREATE DATABASE db_name;
-USE db_name;
+DROP DATABASE IF EXISTS module_modal;
+CREATE DATABASE module_modal;
+USE module_modal;
 
-CREATE TABLE table_name(
+CREATE TABLE fitable(
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  content TEXT NOT NULL
+  typename TEXT NOT NULL
 );
 
-INSERT INTO table_name( )VALUE("");
+INSERT INTO fitable(typename)VALUE("boots");
+INSERT INTO fitable(typename)VALUE("jackets");
+INSERT INTO fitable(typename)VALUE("pants");
 
 /*
-mysql -u forest < db/dbseeding.sql
+mysql -u forest < db/schema.sql
 */

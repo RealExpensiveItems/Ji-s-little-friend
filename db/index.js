@@ -1,9 +1,9 @@
-// const mysql = require("mysql");
+const mysql = require("mysql");
 var con = mysql.createConnection({
   host: "localhost",
   user: "forest",
   password: "",
-  database: "db_name"
+  database: "module_modal"
 });
 
 con.connect(err => {
