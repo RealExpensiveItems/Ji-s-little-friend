@@ -15,86 +15,90 @@ class Massage extends React.Component {
     return(
       <div id="massage">
         <span className="close" onClick={this.closeModal.bind(this)}>&times;</span>
-        <div>
+        
+        <div id="title" className="container">
           <h3>{"My Review for "+this.props.item}</h3>
-          <p>Required fields are marked with *</p>
+          <p className="explaination">Required fields are marked with *</p>
         </div>
-
-        <div>
+        <div className="container">
           <h3>Product rating*</h3>
           <p>☆☆☆☆☆ Click to rate</p>
         </div>
-
-        <div>
+        <div className="container">
           <h3>Review title*</h3>
-          <div><input/></div>
+          <div><input placeholder="Example: Makes hiking even easier"/></div>
         </div>
-
-        <div>
+        <div className="container">
           <h3>Review*</h3>
           <div>
-            <input/>
+            <textarea rows="4"/>
             <button>Add photo</button>
             <button>Add video</button>
           </div>
         </div>
-
-        <div>
-          <div><h3>Would you recommend this product to a friend?</h3></div>
-          <div><button>Yes</button><button>No</button></div>
+        <div className="container">
+          <div className="left"><h3>Would you recommend this product to a friend?</h3></div>
+          <div className="right">
+            <button id="recyes">Yes</button>
+            <button id="recno">No</button>
+          </div>
         </div>
-
-        <div>
-          <div>
+        <div className="container">
+          <div className="left">
             <h3>Nickname*</h3>
-            <input/>
+            <input placeholder="Example: jackie27"/>
           </div>
-          <div>
+          <div className="right">
             <h3>Location</h3>
-            <input/>
+            <input placeholder="Example: Seattle, WA"/>
           </div>
         </div>
-
-        <div>
-          <h3>Email*</h3>
-          <input/>
+        <div className="container">
+          <div className="left">
+            <h3>Email*</h3>
+            <input placeholder="Example: youremail@example.com"/>
+          </div>
         </div>
-
         {this.props.fit?
-        <div>
+        <div className="container">
           <h3>Fit</h3>
           <p>Runs Small   Runs Large</p>
         </div>
-        :<div></div>}
-
-        <div>
-          <h3>Did you read product reviews online before first purchasing this item?</h3>
-          <select>
-            <option>Select</option>
-            <option>Yes</option>
-            <option>No</option>
-          </select>
+        :<div className="box"></div>}
+        <div className="container">
+          <div className="left">
+            <h3>Did you read product reviews online before first purchasing this item?</h3>
+          </div>
+          <div className="right">
+            <select>
+              <option>Select</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
         </div>
-
-        <div>
-          <h3>Where did you purchase the product?</h3>
-          <select>
-            <option>Select</option>
-            <option>Online</option>
-            <option>In-Store</option>
-          </select>
+        <div className="container">
+          <div className="left">
+            <h3>Where did you purchase the product?</h3>
+          </div>
+          <div className="right">
+            <select>
+              <option>Select</option>
+              <option>Online</option>
+              <option>In-Store</option>
+            </select>
+          </div>
         </div>
-
-        <div>
+        <div className="container">
           <h3>What feedback do you have for the people who designed and manufactured this product?</h3>
-          <input/>
+          <textarea rows="4"/>
         </div>
-
-        <div>
-          <p>I agree to the </p>
-          <a>{"terms & conditions"}</a>
-          <p>You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.</p>
-          <button>Post review</button>
+        <div id="post" className="container">
+          <div className="termcontainer"><input  className="termcontent"type="checkbox"/></div>
+          <div className="termcontainer"><label className="termcontent">I agree to the</label></div>
+          <div className="termcontainer"><a  className="termcontent" href="#">{"terms & conditions"}</a></div>
+          <p className="explaination">You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.</p>
+          <button id="postreview">Post review</button>
         </div>
       </div>
     );

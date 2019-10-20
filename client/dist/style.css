@@ -1,7 +1,56 @@
+/************* global *************/
+@font-face{
+  font-family: "titles";
+  src: url("./assets/Clarendon.ttf");
+}
+.box,.left,.right{
+  margin: 0;
+  border: 0;
+}
+p,h3{
+  margin:0;
+}
+input,textarea,select{
+  background-color: white;
+  width: 100%;
+  padding: 7px 15px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-top-color: #aaa;
+  border-radius: 4px;
+  /* how do they show the resizing mark without activating it? */
+}
+input:hover,input:focus,textarea:hover,textarea:focus{
+  border-color: black;
+  outline: none;
+}
+select{
+  margin-top: -5px;
+  padding-left: 6px;
+  font-size: 16px;
+  border-top-color: #ccc;
+  border-bottom-color: black;
+  width: 80%;
+}
+select:hover,select:focus{
+  border-top-color: black;
+  border-bottom-color: #ccc;
+  border-right-color: #aaa;
+  border-left-color: #999;
+  outline: none;
+}
+textarea{
+  resize: vertical;
+  line-height: 23px;
+}
+/*********** basic ************/
 #base{
+  font-family: "Roboto Condensed", sans-serif;
   max-width:1060px;
   margin: auto;
   position: relative;
+  /* relative here will cause problem when modules merge */
 }
 #curtain {
   display: none;
@@ -19,10 +68,11 @@
   z-index: 2;
   position: absolute;
   background-color: #ddd;
-  margin: 20px 7.5%;
+  margin: 40px 7.5%;
   width: 85%;
+  box-shadow: 0 0 40px rgba(0,0,0,0.8);
 }
-
+/************ structure ************/
 #sidebar{
   display: inline-block;  
   vertical-align:top;
@@ -38,6 +88,7 @@
   background-color: white;
 }
 #itemInfo{
+  font-family: sans-serif;
   width: 84%;
   margin: 0 8%;
 }
@@ -46,7 +97,90 @@
   display: inline-block;
   width: 75%;
 }
+.container{
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+.left,.right{
+  display: inline-block;
+  width:47%;
+  vertical-align: top;
+}
+.right{
+  margin-left: 6%;
+}
 
+/************ post ************/
+#post{
+  border-bottom: 0;
+  padding-top: 7px;
+}
+.termcontainer{
+  display: inline-block;
+  vertical-align: top;
+}
+.termcontent{
+  margin:0 5px 0 0;
+  vertical-align: center;
+}
+input.termcontent{
+  margin-top: 2px;
+  width: 18px;
+  height: 18px;
+  font-size: 20px;
+}
+label.termcontent{
+  font-size: 13px;
+}
+a.termcontent{
+  font-size:15px;
+}
+
+#postreview,#open{
+  font-family: "Roboto Condensed", sans-serif;
+  color: white;
+  font-size: 16px;
+  background-color: #4f7697;
+  margin-top: 20px;
+  padding: 11px 15px;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: inset 0 -20px 20px #426c90;
+}
+#postreview:hover,#postreview:focus,#open:hover,#open:focus{
+  outline: none;
+  background-color: #aaa;
+  box-shadow: none;
+}
+/************ after each *************/
+#title h3{
+  font-family: "titles";
+}
+.explaination{
+  margin-top: 20px;
+  font-family: sans-serif;
+  font-size: 10px;
+}
+#recyes,#recno{
+  width:25%;
+  height: 35px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-bottom-color: #999;
+  background-color: #ddd;
+  color: #777;
+}
+#recyes:hover,#recno:hover{
+  border-color:#999;
+  background-color: #ccc;
+}
+#recyes{
+  border-right-width: 0;
+  border-radius: 4px 0 0 4px;
+}
+#recno{
+  border-radius: 0 4px 4px 0;
+}
 .close {
   color: #aaaaaa;
   float: right;

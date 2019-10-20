@@ -38,7 +38,6 @@ class App extends React.Component {
   render() {
     return (this.state.load ?
       <div id = "base">
-        <button onClick={this.openModal.bind(this)}>modal test</button>
         <div id="curtain"/>
         <div id="modal">
           <div id="sidebar">
@@ -47,6 +46,7 @@ class App extends React.Component {
           </div>
           <Massage item={this.state.item} fit={this.state.fit}/>
         </div>
+        <button id="open" onClick={this.openModal.bind(this)}>Write a review</button>
       </div>
       : <div className="box"></div>/* need a spinner here*/
     );
