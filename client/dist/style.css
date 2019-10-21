@@ -1,7 +1,9 @@
+/**********************************/
 /************* global *************/
+/**********************************/
 @font-face{
   font-family: "titles";
-  src: url("./assets/Clarendon.ttf");
+  src: url("./assets/ClarendonLight.ttf");
 }
 .box,.left,.right{
   margin: 0;
@@ -10,7 +12,7 @@
 p,h3{
   margin:0;
 }
-input,textarea,select{
+input,textarea,select,#reviewcontainer{
   background-color: white;
   width: 100%;
   padding: 7px 15px;
@@ -44,7 +46,9 @@ textarea{
   resize: vertical;
   line-height: 23px;
 }
+/******************************/
 /*********** basic ************/
+/******************************/
 #base{
   font-family: "Roboto Condensed", sans-serif;
   max-width:1060px;
@@ -72,7 +76,9 @@ textarea{
   width: 85%;
   box-shadow: 0 0 40px rgba(0,0,0,0.8);
 }
+/***********************************/
 /************ structure ************/
+/***********************************/
 #sidebar{
   display: inline-block;  
   vertical-align:top;
@@ -109,19 +115,85 @@ textarea{
 .right{
   margin-left: 6%;
 }
-
+/******************************/
+/*********** rating ***********/
+/******************************/
+#rating h3,#starcontainer,#stars,#rating p{
+  display: inline-block;
+  vertical-align: middle;
+}
+#rating h3{
+  margin-right:30px;
+}
+#star0,#star5,.star{
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #ccc;
+  border-right-width: 0;
+  border-bottom-color: #aaa;
+  background-color: #eee;
+}
+#star0{
+  border-radius: 4px 0 0 4px;
+}
+#star5{
+  border-right-width: 1px;
+  border-radius: 0 4px 4px 0;
+}
+#rating p{
+  margin-left: 15px;
+  font-family: sans-serif;
+}
+/******************************/
+/*********** review ***********/
+/******************************/
+#reviewcontainer{
+  padding:0;
+  line-height: 25px;
+}
+#reviewarea,#reviewarea:hover,#reviewarea:focus{
+  border-width: 0;
+  border-radius: 5px 5px 0 0;
+  border-bottom-width: 1px;
+  border-color: #ccc;
+  margin: 0;
+}
+#addp,#addv{
+  display: inline-block;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 14px;
+  background-color: #eee;
+  margin: 5px -5px 10px 15px;
+  padding: 0 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  border-color: #ccc #ccc #999 #999;
+}
+/*****************************/
+/************ fit ************/
+/*****************************/
+.inputcontainer,#fitform input{
+  display: inline-block;
+  margin:0;
+}
+.dummy{
+  color:white;
+  z-index: -1;
+}
+/******************************/
 /************ post ************/
+/******************************/
 #post{
   border-bottom: 0;
-  padding-top: 7px;
 }
 .termcontainer{
   display: inline-block;
   vertical-align: top;
 }
 .termcontent{
-  margin:0 5px 0 0;
-  vertical-align: center;
+  margin-right:5px;
+  vertical-align: middle;
 }
 input.termcontent{
   margin-top: 2px;
@@ -152,9 +224,14 @@ a.termcontent{
   background-color: #aaa;
   box-shadow: none;
 }
-/************ after each *************/
+/************************************/
+/************ overwrite *************/
+/************************************/
 #title h3{
   font-family: "titles";
+  font-weight: lighter;
+  font-size: 22px;
+  margin: 15px 0 25px -5px;
 }
 .explaination{
   margin-top: 20px;
@@ -167,12 +244,15 @@ a.termcontent{
   font-size: 16px;
   border: 1px solid #ccc;
   border-bottom-color: #999;
-  background-color: #ddd;
+  background-color: #eee;
   color: #777;
 }
 #recyes:hover,#recno:hover{
   border-color:#999;
-  background-color: #ccc;
+  background-color: #ddd;
+}
+#recyes:focus,#recno:focus{
+  outline: none;
 }
 #recyes{
   border-right-width: 0;
@@ -181,6 +261,8 @@ a.termcontent{
 #recno{
   border-radius: 0 4px 4px 0;
 }
+
+
 .close {
   color: #aaaaaa;
   float: right;
