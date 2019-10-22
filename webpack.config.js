@@ -17,6 +17,10 @@ module.exports = {
           presets: ['@babel/preset-env', '@babel/preset-react'],
         },
       },
+      {
+        　test: /\.(svg)$/,
+      　　loader: 'url-loader?limit=8192&name=assets/[hash:8].[name].[ext]'
+      }
     ],
   },
   resolve: {

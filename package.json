@@ -1,7 +1,7 @@
 {
-  "name": "full-stack-framework",
+  "name": "modalbox",
   "version": "1.0.0",
-  "description": "sample file",
+  "description": "write a review",
   "author": "Forest",
   "license": "UNLICENSED",
   "engines": {
@@ -25,7 +25,9 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "file-loader": "^4.2.0",
     "nodemon": "^1.19.3",
+    "url-loader": "^2.2.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.9"
   }

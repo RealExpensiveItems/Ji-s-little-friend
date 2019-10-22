@@ -122,10 +122,21 @@ textarea{
   display: inline-block;
   vertical-align: middle;
 }
+.greystar,.whitestar{
+  width:30px;
+  height: auto;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+.greystar{
+  top:3px;
+}
 #rating h3{
   margin-right:30px;
 }
-#star0,#star5,.star{
+.stars{
+  position: relative;
   display: inline-block;
   height: 40px;
   width: 40px;
@@ -134,7 +145,7 @@ textarea{
   border-bottom-color: #aaa;
   background-color: #eee;
 }
-#star0{
+#star1{
   border-radius: 4px 0 0 4px;
 }
 #star5{
@@ -173,13 +184,17 @@ textarea{
 /*****************************/
 /************ fit ************/
 /*****************************/
-.inputcontainer,#fitform input{
+.inputcontainer{
   display: inline-block;
   margin:0;
 }
+#fitform input{
+  font-size: 40px;
+  height:40px;
+  width: 40px;
+}
 .dummy{
-  color:white;
-  z-index: -1;
+  position: absolute;
 }
 /******************************/
 /************ post ************/

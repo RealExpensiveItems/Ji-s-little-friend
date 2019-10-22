@@ -12,5 +12,5 @@ INSERT INTO fitable(typename)VALUE("jackets");
 INSERT INTO fitable(typename)VALUE("pants");
 
 /*
-mysql -u forest < db/schema.sql
+mysql -u forest < db/assets/schema.sql
 */

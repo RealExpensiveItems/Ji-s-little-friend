@@ -4,7 +4,19 @@ class Massage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rate:"Click to rate"
+      rate:"Click to rate",
+      rating:"0",//
+      title:0,//
+      review:0,//50
+      recommend:0,
+      nickname:0,//4
+      location:0,
+      email:0,//
+      fit:0,
+      read:0,
+      where:0,
+      feedback:0,
+      agree:0//
     };
   }
   closeModal(e){
@@ -12,6 +24,27 @@ class Massage extends React.Component {
     document.getElementById("curtain").style.display = "none";
     document.getElementById("modal").style.display = "none";
   }
+
+  coloringRating(i){
+    if(i==="0")this.setState({rate:"Click to rate"});
+    if(i==="1"){var str="red";this.setState({rate:"Poor"});}
+    if(i==="2"){var str="orange";this.setState({rate:"Fair"});}
+    if(i==="3"){var str="yellow";this.setState({rate:"Average"});}
+    if(i==="4"){var str="lightgreen";this.setState({rate:"Good"});}
+    if(i==="5"){var str="green";this.setState({rate:"Excellent"});}
+    for(var a=1;a<=5;a++)
+      document.getElementById("star"+a).style.backgroundColor = a<=i?str:"#eee";
+  }
+  clickRating(e){
+    this.setState({rating:e.currentTarget.getAttribute("value")});
+  }
+  hoverRating(e){
+    this.coloringRating(e.currentTarget.getAttribute("value"));
+  }
+  leaveRating(){
+    this.coloringRating(this.state.rating);
+  }
+
   blackReview(){
     document.getElementById("reviewcontainer").style.borderColor="black";
   }
@@ -33,11 +66,15 @@ class Massage extends React.Component {
           <h3>Product rating*</h3>
           <div id="starcontainer">
             <div id="stars">
-              <div id="star0"></div>
-              <div className="star"></div>
-              <div className="star"></div>
-              <div className="star"></div>
-              <div id="star5"></div>
+              {([1,2,3,4,5]).map((i)=>(
+              <div id={"star"+i} className="stars" value={i}
+                onMouseOver={this.hoverRating.bind(this)}
+                onClick={this.clickRating.bind(this)}
+                onMouseLeave={this.leaveRating.bind(this)}>
+                <img className="greystar" src={require("../../db/assets/star-grey.svg")}/>
+                <img className="whitestar" src={require("../../db/assets/star-white.svg")}/>
+              </div>
+              ))}
             </div>
             <p>{this.state.rate}</p>
           </div>
@@ -51,11 +88,11 @@ class Massage extends React.Component {
         <div className="container">
           <h3>Review*</h3>
           <div id="reviewcontainer"
-            onMouseOver={this.blackReview.bind(this)}
-            onMouseLeave={this.recoverReview.bind(this)}>
+            onMouseOver={this.blackReview}
+            onMouseLeave={this.recoverReview}>
             <textarea rows="4" id="reviewarea"
-              onFocus={this.blackReview.bind(this)}
-              onBlur={this.recoverReview.bind(this)}/>
+              onFocus={this.blackReview}
+              onBlur={this.recoverReview}/>
             <div id="addp">Add photo</div>
             <div id="addv">Add video</div>
           </div>
@@ -95,27 +132,27 @@ class Massage extends React.Component {
           <div className="right">
             <form id="fitform">
               <div className="inputcontainer">
-                <div className="dummy">1</div>
+                <div className="dummy">&nbsp;</div>
                 <input type="radio" name="fit"/>
               </div>
               <div className="inputcontainer">
-                <div className="dummy">2</div>
+                <div className="dummy">&nbsp;</div>
                 <input type="radio" name="fit"/>
               </div>
               <div className="inputcontainer">
-                <div className="dummy">3</div>
+                <div className="dummy">&nbsp;</div>
                 <input type="radio" name="fit"/>
               </div>
               <div className="inputcontainer">
-                <div className="dummy">4</div>
+                <div className="dummy">&nbsp;</div>
                 <input type="radio" name="fit"/>
               </div>
               <div className="inputcontainer">
-                <div className="dummy">5</div>
+                <div className="dummy">&nbsp;</div>
                 <input type="radio" name="fit"/>
               </div>
             </form>
-            <p>Runs Small   Runs Large</p>
+            <p>Runs Small Runs Large</p>
           </div>
         </div>
         :<div className="box"></div>}
