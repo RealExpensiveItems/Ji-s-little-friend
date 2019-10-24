@@ -1,25 +1,32 @@
 /**********************************/
 /************* global *************/
 /**********************************/
-@font-face{
+@font-face {
   font-family: "titles";
   src: url("./assets/ClarendonLight.ttf");
 }
-.box,.left,.right{
+.box,
+.left,
+.right {
   margin: 0;
   border: 0;
 }
-p,h3{
-  margin:0;
+p,
+h3 {
+  margin: 0;
 }
-.shorttitle{
+.shorttitle {
   display: inline-block;
   line-height: 32px;
 }
-button:focus, select:focus{
+button:focus,
+select:focus {
   outline: none;
 }
-input,textarea,select,#reviewcontainer{
+input,
+textarea,
+select,
+#reviewcontainer {
   background-color: white;
   width: 100%;
   padding: 7px 15px;
@@ -30,11 +37,14 @@ input,textarea,select,#reviewcontainer{
   border-radius: 4px;
   /* how do they show the resizing mark without activating it? */
 }
-input:hover,input:focus,textarea:hover,textarea:focus{
+input:hover,
+input:focus,
+textarea:hover,
+textarea:focus {
   border-color: black;
   outline: none;
 }
-select{
+select {
   margin-top: -5px;
   padding-left: 6px;
   font-size: 16px;
@@ -42,73 +52,80 @@ select{
   border-bottom-color: black;
   width: 80%;
 }
-select:hover{
+select:hover {
   border-top-color: black;
   border-bottom-color: #ccc;
   border-right-color: #aaa;
   border-left-color: #999;
 }
-textarea{
+textarea {
   resize: vertical;
   line-height: 23px;
 }
 
-#header,#rating,#recommend,#email,#fit,#read,#where,.inlinewrap{
+#header,
+#rating,
+#recommend,
+#email,
+#fit,
+#read,
+#where,
+.inlinewrap {
   position: relative;
 }
 
-
-.invalidcontainer{
-  float:right;
-  margin-top:7px;
-  width:195px;
-  height:100%;
+.invalidcontainer {
+  float: right;
+  margin-top: 7px;
+  width: 195px;
+  height: 100%;
 }
-.invalidwrap{
-  float:right;
+.invalidwrap {
+  float: right;
   text-align: right;
-  width:90px;
-  padding:3px 4px;
-  border:1px solid #ccc;
+  width: 90px;
+  padding: 3px 4px;
+  border: 1px solid #ccc;
   border-radius: 15px;
 }
-.invalidtext{
-  color:crimson;
+.invalidtext {
+  color: crimson;
   vertical-align: middle;
-  height:100%;
+  height: 100%;
   font-size: 16px;
 }
-.invalidimg,.validimg{
+.invalidimg,
+.validimg {
   vertical-align: middle;
   height: 24px;
   width: 24px;
   border-radius: 12px;
   background-color: crimson;
 }
-.validcontainer{
+.validcontainer {
   position: absolute;
-  right:20px;
-  top:50%;
-  height:100%;
+  right: 20px;
+  top: 50%;
+  height: 100%;
 }
-.inlineic{
-  margin-top:0;
+.inlineic {
+  margin-top: 0;
 }
-.inlinevc{
-  right:5px;
+.inlinevc {
+  right: 5px;
 }
-.validwrap{
-  margin-top:-12px;
+.validwrap {
+  margin-top: -12px;
 }
-.validimg{
+.validimg {
   background-color: green;
 }
 /******************************/
 /*********** basic ************/
 /******************************/
-#base{
+#base {
   font-family: "Roboto Condensed", sans-serif;
-  max-width:1060px;
+  max-width: 1060px;
   margin: auto;
   position: relative;
   /* relative here will cause problem when modules merge */
@@ -121,7 +138,7 @@ textarea{
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 #modal {
@@ -131,53 +148,54 @@ textarea{
   background-color: #ddd;
   margin: 40px 7.5%;
   width: 85%;
-  box-shadow: 0 0 40px rgba(0,0,0,0.8);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
 }
 /***********************************/
 /************ structure ************/
 /***********************************/
-#sidebar{
-  display: inline-block;  
-  vertical-align:top;
+#sidebar {
+  display: inline-block;
+  vertical-align: top;
   background-color: #ddd;
   width: 25%;
   height: 100px;
 }
-#itemImg{
+#itemImg {
   width: 84%;
   height: auto;
   margin: 20px 8%;
   border-radius: 5px;
   background-color: white;
 }
-#itemInfo{
+#itemInfo {
   font-family: sans-serif;
   width: 84%;
   margin: 0 8%;
 }
-#massage{
-  clear:both;
+#massage {
+  clear: both;
   background-color: white;
   display: inline-block;
   width: 75%;
 }
-.container{
+.container {
   padding: 15px;
   border-bottom: 1px solid #ddd;
 }
-.left,.right{
+.left,
+.right {
   display: inline-block;
-  width:47%;
+  width: 47%;
   vertical-align: top;
 }
-.right{
+.right {
   margin-left: 6%;
 }
 
 /*****************************/
 /*********** title ***********/
 /*****************************/
-#header h3{
+#header h3 {
   font-family: "titles";
   font-weight: lighter;
   font-size: 22px;
@@ -186,24 +204,28 @@ textarea{
 /******************************/
 /*********** rating ***********/
 /******************************/
-#rating h3,#starcontainer,#stars,#rating p{
+#rating h3,
+#starcontainer,
+#stars,
+#rating p {
   display: inline-block;
   vertical-align: middle;
 }
-.greystar,.whitestar{
-  width:30px;
+.greystar,
+.whitestar {
+  width: 30px;
   height: auto;
   position: absolute;
   left: 5px;
   top: 5px;
 }
-.greystar{
-  top:3px;
+.greystar {
+  top: 3px;
 }
-#rating h3{
-  margin-right:30px;
+#rating h3 {
+  margin-right: 30px;
 }
-.stars{
+.stars {
   position: relative;
   display: inline-block;
   height: 40px;
@@ -213,14 +235,14 @@ textarea{
   border-bottom-color: #aaa;
   background-color: #eee;
 }
-#star1{
+#star1 {
   border-radius: 4px 0 0 4px;
 }
-#star5{
+#star5 {
   border-right-width: 1px;
   border-radius: 0 4px 4px 0;
 }
-#rating p{
+#rating p {
   margin-left: 15px;
   font-family: sans-serif;
 }
@@ -231,22 +253,24 @@ textarea{
   height:100%;
 } */
 
-
 /******************************/
 /*********** review ***********/
 /******************************/
-#reviewcontainer{
-  padding:0;
+#reviewcontainer {
+  padding: 0;
   line-height: 25px;
 }
-#reviewarea,#reviewarea:hover,#reviewarea:focus{
+#reviewarea,
+#reviewarea:hover,
+#reviewarea:focus {
   border-width: 0;
   border-radius: 5px 5px 0 0;
   border-bottom-width: 1px;
   border-color: #ccc;
   margin: 0;
 }
-#addp,#addv{
+#addp,
+#addv {
   display: inline-block;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 14px;
@@ -260,46 +284,50 @@ textarea{
 /*****************************/
 /************ fit ************/
 /*****************************/
-.inputcontainer{
+.inputcontainer {
   display: inline-block;
-  margin:0;
+  margin: 0;
 }
-#fitform input{
+#fitform input {
   font-size: 40px;
-  height:40px;
+  height: 40px;
   width: 40px;
+  background-color: white;
 }
-.dummy{
-  position: absolute;
+.radio{
+  height:10px;
+  width:10px;
 }
 /******************************/
 /************ post ************/
 /******************************/
-#post{
+#post {
   border-bottom: 0;
 }
-.termcontainer{
+.termcontainer {
   display: inline-block;
   vertical-align: top;
 }
-.termcontent{
-  margin-right:5px;
+.termcontent {
+  margin-right: 5px;
   vertical-align: middle;
 }
-input.termcontent{
+input.termcontent {
   margin-top: 2px;
   width: 18px;
   height: 18px;
   font-size: 20px;
 }
-label.termcontent{
+label.termcontent {
   font-size: 13px;
+  color: crimson;
 }
-a.termcontent{
-  font-size:15px;
+a.termcontent {
+  font-size: 15px;
 }
 
-#postreview,#open{
+#postreview,
+#open {
   font-family: "Roboto Condensed", sans-serif;
   color: white;
   font-size: 16px;
@@ -310,20 +338,22 @@ a.termcontent{
   border-radius: 2px;
   box-shadow: inset 0 -20px 20px #426c90;
 }
-#postreview:hover,#open:hover{
+#postreview:hover,
+#open:hover {
   background-color: #2b455c;
   box-shadow: none;
 }
 /************************************/
 /************ overwrite *************/
 /************************************/
-.explaination{
+.explaination {
   margin-top: 20px;
   font-family: sans-serif;
   font-size: 10px;
 }
-#recyes,#recno{
-  width:25%;
+#recyes,
+#recno {
+  width: 25%;
   height: 35px;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -335,31 +365,31 @@ a.termcontent{
   border-color:#999;
   background-color: #ddd;
 } */
-#recyes{
+#recyes {
   border-right-width: 0;
   border-radius: 4px 0 0 4px;
   font-weight: bold;
 }
-#recno{
+#recno {
   border-radius: 0 4px 4px 0;
 }
 
-
-.closecontainer{
+.closecontainer {
   position: absolute;
-  top:5px;
-  right:5px;
+  top: 5px;
+  right: 5px;
   height: 24px;
   width: 24px;
   border-radius: 12px;
   background-color: #888;
 }
-.closecontainer:hover,.closecontainer:focus {
+.closecontainer:hover,
+.closecontainer:focus {
   text-decoration: none;
   cursor: pointer;
   background-color: #444;
 }
 
-#emailvalidcontainer{
-  margin-top:27px;
+#emailvalidcontainer {
+  margin-top: 27px;
 }

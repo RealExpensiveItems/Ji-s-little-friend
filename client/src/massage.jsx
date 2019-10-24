@@ -25,7 +25,7 @@ class Massage extends React.Component {
       read:"0",
       where:"0",
       feedback:"0",
-      agree:"0"//
+      term:"0"//
     };
   }
   closeModal(e){
@@ -146,6 +146,10 @@ class Massage extends React.Component {
   hdlWhere(){this.setState({where:"1"});}
   hdlRead(){this.setState({read:"1"});}
   hdlFeedback(){this.setState({feedback:"1"});}
+  hdlTerm(){
+    if(this.state.term==="1")this.setState({term:"-1"});
+    else this.setState({term:"1"});
+  }
 
   onPost(){
     var obj={};
@@ -154,7 +158,7 @@ class Massage extends React.Component {
     if(this.state.review==="0")obj.review="-1";
     if(this.state.nickname==="0")obj.nickname="-1";
     if(this.state.email==="0")obj.email="-1";
-    if(this.state.agree==="0")obj.agree="-1";
+    if(this.state.term==="0")obj.term="-1";
 
     if(this.state.recommend==="0")obj.recommend="1";
     if(this.state.location==="0")obj.location="1";
@@ -349,8 +353,7 @@ class Massage extends React.Component {
               {[1,2,3,4,5].map((i)=>(
               <div id={"fit"+i} className="inputcontainer"
                 onClick={this.hdlFit.bind(this)}>
-                <div className="dummy">&nbsp;</div>
-                <input type="radio" name="fit"/>
+                <div className="radio"/>
               </div>))}
             </form>
             <p>Runs Small Runs Large</p>
@@ -416,9 +419,27 @@ class Massage extends React.Component {
         </div>
 
         <div id="post" className="container">
-          <div className="termcontainer"><input  className="termcontent"type="checkbox"/></div>
-          <div className="termcontainer"><label className="termcontent">I agree to the</label></div>
-          <div className="termcontainer"><a  className="termcontent" href="#">{"terms & conditions"}</a></div>
+          <div className="inlinewrap">
+            <div className="termcontainer">
+              <input className="termcontent" type="checkbox"
+                onClick={this.hdlTerm.bind(this)}/>
+              </div>
+            <div className="termcontainer"><label className="termcontent">I agree to the</label></div>
+            <div className="termcontainer"><a  className="termcontent" href="#">{"terms & conditions"}</a></div>
+            {this.state.term==="0"?<div/>
+            :this.state.term==="-1"
+            ?<div className="invalidcontainer inlineic">
+              <div className="invalidwrap">
+                <span className="invalidtext">Required&nbsp;</span>
+                <img className="invalidimg" src={require("../../db/assets/times.svg")}/>
+              </div>
+            </div>
+            :<div className="validcontainer inlinevc">
+              <div className="validwrap">
+                <img className="validimg" src={require("../../db/assets/tick.svg")}/>
+              </div>
+            </div>}
+          </div>          
           <p className="explaination">You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.</p>
           <button id="postreview" onClick={this.onPost.bind(this)}>Post review</button>
         </div>
