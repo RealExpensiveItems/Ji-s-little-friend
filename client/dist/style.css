@@ -11,21 +11,21 @@
   margin: 0;
   border: 0;
 }
-p,
-h3 {
+.FORESTGLOBAL-p,
+.FORESTGLOBAL-h3 {
   margin: 0;
 }
 .FOREST-shorttitle {
   display: inline-block;
   line-height: 32px;
 }
-button:focus,
-select:focus {
+.FORESTGLOBAL-button:focus,
+.FORESTGLOBAL-select:focus {
   outline: none;
 }
-input,
-textarea,
-select,
+.FORESTGLOBAL-input,
+.FORESTGLOBAL-textarea,
+.FORESTGLOBAL-select,
 #FOREST-reviewcontainer {
   background-color: white;
   width: 100%;
@@ -37,14 +37,14 @@ select,
   border-radius: 4px;
   /* how do they show the resizing mark without activating it? */
 }
-input:hover,
-input:focus,
-textarea:hover,
-textarea:focus {
+.FORESTGLOBAL-input:hover,
+.FORESTGLOBAL-input:focus,
+.FORESTGLOBAL-textarea:hover,
+.FORESTGLOBAL-textarea:focus {
   border-color: black;
   outline: none;
 }
-select {
+.FORESTGLOBAL-select {
   margin-top: -5px;
   padding-left: 6px;
   font-size: 16px;
@@ -52,13 +52,13 @@ select {
   border-bottom-color: black;
   width: 80%;
 }
-select:hover {
+.FORESTGLOBAL-select:hover {
   border-top-color: black;
   border-bottom-color: #ccc;
   border-right-color: #aaa;
   border-left-color: #999;
 }
-textarea {
+.FORESTGLOBAL-textarea {
   resize: vertical;
   line-height: 23px;
 }

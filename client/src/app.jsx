@@ -45,13 +45,13 @@ class App extends React.Component {
         <div id="FOREST-modal">
           <div id="FOREST-sidebar">
             <img id="FOREST-itemImg" src={this.state.imgurl} />
-            <p id="FOREST-itemInfo">{this.state.seller+" - "+this.state.item}</p>
+            <p id="FOREST-itemInfo" className="FORESTGLOBAL-p">{this.state.seller+" - "+this.state.item}</p>
           </div>
           <Massage item={this.state.item} fit={this.state.fit}/>
         </div>
-        <button id="FOREST-open" onClick={this.openModal.bind(this)}>Write a review</button>
+        <button id="FOREST-open"  className="FORESTGLOBAL-button" onClick={this.openModal.bind(this)}>Write a review</button>
       </div>
-      : <div className="FOREST-box"></div>/* need a spinner here*/
+      : <div className="FOREST-box"/>/* need a spinner here*/
     );
   }
 }

@@ -188,8 +188,8 @@ class Massage extends React.Component {
       <div id="FOREST-massage">
 
         <div id="FOREST-header" className="FOREST-container">
-          <h3>{"My Review for "+this.props.item}</h3>
-          <p className="FOREST-explaination">Required fields are marked with *</p>
+          <h3 className="FORESTGLOBAL-h3">{"My Review for "+this.props.item}</h3>
+          <p className="FORESTGLOBAL-p FOREST-explaination">Required fields are marked with *</p>
 
           <div className="FOREST-closecontainer">
             <img className="FOREST-close" onClick={this.closeModal.bind(this)} src={require("../../db/assets/times.svg")}/>
@@ -197,7 +197,7 @@ class Massage extends React.Component {
         </div>
 
         <div id="FOREST-rating" className="FOREST-container">
-          <h3 style={{color:this.state.rating==="-1"?"crimson":"black"}}>Product rating*</h3>
+          <h3 className="FORESTGLOBAL-h3" style={{color:this.state.rating==="-1"?"crimson":"black"}}>Product rating*</h3>
           <div id="FOREST-starcontainer">
             <div id="FOREST-stars">
               {([1,2,3,4,5]).map((i)=>(
@@ -210,7 +210,7 @@ class Massage extends React.Component {
               </div>
               ))}
             </div>
-            <p>{this.state.rate}</p>
+            <p className="FORESTGLOBAL-p">{this.state.rate}</p>
           </div>
           {this.state.rating==="0"?<div/>
           :this.state.rating==="-1"
@@ -229,7 +229,7 @@ class Massage extends React.Component {
 
         <div className="FOREST-container">
           <div className="FOREST-inlinewrap">
-            <h3 className="FOREST-shorttitle" style={{color:this.state.title==="-1"?"crimson":"black"}}>Review title*</h3>
+            <h3 className="FORESTGLOBAL-h3 FOREST-shorttitle" style={{color:this.state.title==="-1"?"crimson":"black"}}>Review title*</h3>
             {this.state.title==="0"?<div/>
             :this.state.title==="-1"
             ?<div className="FOREST-invalidcontainer FOREST-inlineic">
@@ -244,14 +244,14 @@ class Massage extends React.Component {
               </div>
             </div>}
           </div>
-          <input placeholder="Example: Makes hiking even easier" value={this.state.titleBuffer}
+          <input className="FORESTGLOBAL-input" placeholder="Example: Makes hiking even easier" value={this.state.titleBuffer}
             onBlur={this.blurTitle.bind(this)}
             onChange={this.updateTitle.bind(this)}/>
         </div>
 
         <div className="FOREST-container">
           <div className="FOREST-inlinewrap">
-            <h3 className="FOREST-shorttitle" style={{color:this.state.review==="-1"?"crimson":"black"}}>Review*</h3>
+            <h3 className="FORESTGLOBAL-h3 FOREST-shorttitle" style={{color:this.state.review==="-1"?"crimson":"black"}}>Review*</h3>
             {this.state.review==="0"?<div/>
             :this.state.review==="-1"
             ?<div className="FOREST-invalidcontainer FOREST-inlineic">
@@ -269,25 +269,25 @@ class Massage extends React.Component {
           <div id="FOREST-reviewcontainer"
             onMouseOver={this.hoverReview.bind(this)}
             onMouseLeave={this.leaveReview.bind(this)}>
-            <textarea rows="4" id="FOREST-reviewarea"
+            <textarea rows="4" id="FOREST-reviewarea" className="FORESTGLOBAL-textarea"
               onFocus={this.focusReview.bind(this)}
               onBlur={this.blurReview.bind(this)}
               onChange={this.updateReview.bind(this)}/>
-            <div id="addp">Add photo</div>
-            <div id="addv">Add video</div>
+            <div id="FOREST-addp">Add photo</div>
+            <div id="FOREST-addv">Add video</div>
           </div>
         </div>
 
         <div id="FOREST-recommend" className="FOREST-container">
           <div className="FOREST-left">
-            <h3 style={{color:this.state.recommend==="-1"?"crimson":"black"}}>Would you recommend this product to a friend?</h3>
+            <h3 className="FORESTGLOBAL-h3" style={{color:this.state.recommend==="-1"?"crimson":"black"}}>Would you recommend this product to a friend?</h3>
           </div>
           <div className="FOREST-right">
-            <button id="FOREST-recyes" value="1"
+            <button id="FOREST-recyes" className="FORESTGLOBAL-button" value="1"
               onClick={this.hdlRecommend.bind(this)}
               onMouseOver={this.hoverRecommend.bind(this)}
               onMouseLeave={this.leaveRecommend.bind(this)}>Yes</button>
-            <button id="FOREST-recno" value="2"
+            <button id="FOREST-recno" className="FORESTGLOBAL-button" value="2"
               onClick={this.hdlRecommend.bind(this)}
               onMouseOver={this.hoverRecommend.bind(this)}
               onMouseLeave={this.leaveRecommend.bind(this)}>No</button>
@@ -303,7 +303,7 @@ class Massage extends React.Component {
         <div className="FOREST-container">
           <div className="FOREST-left">
             <div className="FOREST-inlinewrap">
-              <h3 className="FOREST-shorttitle" style={{color:this.state.nickname==="-1"?"crimson":"black"}}>Nickname*</h3>
+              <h3 className="FORESTGLOBAL-h3 FOREST-shorttitle" style={{color:this.state.nickname==="-1"?"crimson":"black"}}>Nickname*</h3>
               {this.state.nickname==="0"?<div/>
               :this.state.nickname==="-1"
               ?<div className="FOREST-invalidcontainer FOREST-inlineic">
@@ -318,13 +318,13 @@ class Massage extends React.Component {
                 </div>
               </div>}
             </div>
-            <input placeholder="Example: jackie27" value={this.state.nicknameBuffer}
+            <input className="FORESTGLOBAL-input" placeholder="Example: jackie27" value={this.state.nicknameBuffer}
               onBlur={this.blurNickname.bind(this)}
               onChange={this.updateNickname.bind(this)}/>
           </div>
           <div className="FOREST-right">
             <div className="FOREST-inlinewrap">
-              <h3 className="FOREST-shorttitle">Location</h3>
+              <h3 className="FORESTGLOBAL-h3 FOREST-shorttitle">Location</h3>
               {this.state.location==="0"?<div/>:
               <div className="FOREST-validcontainer FOREST-inlinevc">
                 <div className="FOREST-validwrap">
@@ -332,14 +332,14 @@ class Massage extends React.Component {
                 </div>
               </div>}
             </div>
-            <input placeholder="Example: Seattle, WA" onBlur={this.hdlLocation.bind(this)}/>
+            <input className="FORESTGLOBAL-input" placeholder="Example: Seattle, WA" onBlur={this.hdlLocation.bind(this)}/>
           </div>
         </div>
 
         <div id="FOREST-email" className="FOREST-container">
           <div className="FOREST-left">
-            <h3 className="FOREST-shorttitle" style={{color:this.state.email==="-1"?"crimson":"black"}}>Email*</h3>
-            <input placeholder="Example: youremail@example.com" value={this.state.emailBuffer}
+            <h3 className="FORESTGLOBAL-h3 FOREST-shorttitle" style={{color:this.state.email==="-1"?"crimson":"black"}}>Email*</h3>
+            <input className="FORESTGLOBAL-input" placeholder="Example: youremail@example.com" value={this.state.emailBuffer}
               onBlur={this.blurEmail.bind(this)}
               onChange={this.updateEmail.bind(this)}/>
            </div>
@@ -361,7 +361,7 @@ class Massage extends React.Component {
         {this.props.fit?
         <div id="FOREST-fit" className="FOREST-container">
           <div className="FOREST-left">
-            <h3>Fit</h3>
+            <h3 className="FORESTGLOBAL-h3">Fit</h3>
           </div>
           <div className="FOREST-right">
             {[1,2,3,4,5].map((i)=>(
@@ -369,10 +369,10 @@ class Massage extends React.Component {
               onClick={this.hdlFit.bind(this)}
               onMouseOver={this.hoverFit.bind(this)}
               onMouseLeave={this.leaveFit.bind(this)}>
-              <div style={{"background-color":this.state.fit===i.toString()?"blue":"white"}} className="radio"/>
+              <div className="FOREST-radio" style={{backgroundColor:this.state.fit===i.toString()?"blue":"white"}}/>
             </div>))}
-            <p>Runs Small</p>
-            <p id="FOREST-runlarge">Runs Large</p>
+            <p className="FORESTGLOBAL-p">Runs Small</p>
+            <p id="FOREST-runlarge" className="FORESTGLOBAL-p">Runs Large</p>
           </div>
           {this.state.fit==="0"?<div/>:
           <div className="FOREST-validcontainer">
@@ -385,10 +385,10 @@ class Massage extends React.Component {
 
         <div id="FOREST-read" className="FOREST-container">
           <div className="FOREST-left">
-            <h3>Did you read product reviews online before first purchasing this item?</h3>
+            <h3 className="FORESTGLOBAL-h3">Did you read product reviews online before first purchasing this item?</h3>
           </div>
           <div className="FOREST-right">
-            <select onChange={this.hdlRead.bind(this)}>
+            <select className="FORESTGLOBAL-select" onChange={this.hdlRead.bind(this)}>
               <option>Select</option>
               <option>Yes</option>
               <option>No</option>
@@ -404,10 +404,10 @@ class Massage extends React.Component {
 
         <div id="FOREST-where" className="FOREST-container">
           <div className="FOREST-left">
-            <h3>Where did you purchase the product?</h3>
+            <h3 className="FORESTGLOBAL-h3">Where did you purchase the product?</h3>
           </div>
           <div className="FOREST-right">
-            <select onChange={this.hdlWhere.bind(this)}>
+            <select className="FORESTGLOBAL-select" onChange={this.hdlWhere.bind(this)}>
               <option>Select</option>
               <option>Online</option>
               <option>In-Store</option>
@@ -423,7 +423,7 @@ class Massage extends React.Component {
 
         <div className="FOREST-container">
           <div className="FOREST-inlinewrap">
-            <h3>What feedback do you have for the people who designed and manufactured this product?</h3>
+            <h3 className="FORESTGLOBAL-h3">What feedback do you have for the people who designed and manufactured this product?</h3>
             {this.state.feedback==="0"?<div/>:
             <div className="FOREST-validcontainer FOREST-inlinevc">
               <div className="FOREST-validwrap">
@@ -431,13 +431,13 @@ class Massage extends React.Component {
               </div>
             </div>}
           </div>
-          <textarea rows="4" onBlur={this.hdlFeedback.bind(this)}/>
+          <textarea className="FORESTGLOBAL-textarea" rows="4" onBlur={this.hdlFeedback.bind(this)}/>
         </div>
 
         <div id="FOREST-post" className="FOREST-container">
           <div className="FOREST-inlinewrap">
             <div className="FOREST-termcontainer">
-              <input className="FOREST-termcontent" type="checkbox"
+              <input className="FORESTGLOBAL-input FOREST-termcontent" type="checkbox"
                 onClick={this.hdlTerm.bind(this)}/>
               </div>
             <div className="FOREST-termcontainer"><label className="FOREST-termcontent">I agree to the</label></div>
@@ -456,8 +456,8 @@ class Massage extends React.Component {
               </div>
             </div>}
           </div>          
-          <p className="FOREST-explaination">You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.</p>
-          <button id="FOREST-postreview" onClick={this.onPost.bind(this)}>Post review</button>
+          <p className="FORESTGLOBAL-p FOREST-explaination">You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.</p>
+          <button id="FOREST-postreview" className="FORESTGLOBAL-button" onClick={this.onPost.bind(this)}>Post review</button>
         </div>
       </div>
     );
