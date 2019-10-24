@@ -141,8 +141,21 @@ class Massage extends React.Component {
     this.setState({emailBuffer:e.target.value});
   }
 
+  hdlFit(e){
+    var i=e.currentTarget.getAttribute("id").slice(3);
+    for(var j=1;j<6;j++)
+      if(j!==i)
+        document.getElementById("fit"+j).style.backgroundColor="#eee";
+    e.currentTarget.style.backgroundColor="#ddd";
+    this.setState({fit:i});
+  }
+  hoverFit(e){e.currentTarget.style.backgroundColor="#ddd";}
+  leaveFit(e){
+    if(this.state.fit!==e.currentTarget.getAttribute("id").slice(3))
+      e.currentTarget.style.backgroundColor="#eee";
+  }
+
   hdlLocation(){this.setState({location:"1"});}
-  hdlFit(){this.setState({fit:"1"});}
   hdlWhere(){this.setState({where:"1"});}
   hdlRead(){this.setState({read:"1"});}
   hdlFeedback(){this.setState({feedback:"1"});}
@@ -162,7 +175,7 @@ class Massage extends React.Component {
 
     if(this.state.recommend==="0")obj.recommend="1";
     if(this.state.location==="0")obj.location="1";
-    if(this.state.fit==="0")obj.fit="1";
+    if(this.state.fit==="0")obj.fit="-2";
     if(this.state.read==="0")obj.read="1";
     if(this.state.where==="0")obj.where="1";
     if(this.state.feedback==="0")obj.feedback="1";
@@ -349,14 +362,15 @@ class Massage extends React.Component {
             <h3>Fit</h3>
           </div>
           <div className="right">
-            <form id="fitform">
-              {[1,2,3,4,5].map((i)=>(
-              <div id={"fit"+i} className="inputcontainer"
-                onClick={this.hdlFit.bind(this)}>
-                <div className="radio"/>
-              </div>))}
-            </form>
-            <p>Runs Small Runs Large</p>
+            {[1,2,3,4,5].map((i)=>(
+            <div id={"fit"+i} className="inputcontainer"
+              onClick={this.hdlFit.bind(this)}
+              onMouseOver={this.hoverFit.bind(this)}
+              onMouseLeave={this.leaveFit.bind(this)}>
+              <div style={{"background-color":this.state.fit===i.toString()?"blue":"white"}} className="radio"/>
+            </div>))}
+            <p>Runs Small</p>
+            <p id="runlarge">Runs Large</p>
           </div>
           {this.state.fit==="0"?<div/>:
           <div className="validcontainer">
