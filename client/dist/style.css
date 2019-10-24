@@ -12,6 +12,13 @@
 p,h3{
   margin:0;
 }
+.shorttitle{
+  display: inline-block;
+  line-height: 32px;
+}
+button:focus, select:focus{
+  outline: none;
+}
 input,textarea,select,#reviewcontainer{
   background-color: white;
   width: 100%;
@@ -35,16 +42,66 @@ select{
   border-bottom-color: black;
   width: 80%;
 }
-select:hover,select:focus{
+select:hover{
   border-top-color: black;
   border-bottom-color: #ccc;
   border-right-color: #aaa;
   border-left-color: #999;
-  outline: none;
 }
 textarea{
   resize: vertical;
   line-height: 23px;
+}
+
+#header,#rating,#recommend,#email,#fit,#read,#where,.inlinewrap{
+  position: relative;
+}
+
+
+.invalidcontainer{
+  float:right;
+  margin-top:7px;
+  width:195px;
+  height:100%;
+}
+.invalidwrap{
+  float:right;
+  text-align: right;
+  width:90px;
+  padding:3px 4px;
+  border:1px solid #ccc;
+  border-radius: 15px;
+}
+.invalidtext{
+  color:crimson;
+  vertical-align: middle;
+  height:100%;
+  font-size: 16px;
+}
+.invalidimg,.validimg{
+  vertical-align: middle;
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+  background-color: crimson;
+}
+.validcontainer{
+  position: absolute;
+  right:20px;
+  top:50%;
+  height:100%;
+}
+.inlineic{
+  margin-top:0;
+}
+.inlinevc{
+  right:5px;
+}
+.validwrap{
+  margin-top:-12px;
+}
+.validimg{
+  background-color: green;
 }
 /******************************/
 /*********** basic ************/
@@ -99,6 +156,7 @@ textarea{
   margin: 0 8%;
 }
 #massage{
+  clear:both;
   background-color: white;
   display: inline-block;
   width: 75%;
@@ -114,6 +172,16 @@ textarea{
 }
 .right{
   margin-left: 6%;
+}
+
+/*****************************/
+/*********** title ***********/
+/*****************************/
+#header h3{
+  font-family: "titles";
+  font-weight: lighter;
+  font-size: 22px;
+  margin: 15px 0 25px -5px;
 }
 /******************************/
 /*********** rating ***********/
@@ -156,6 +224,14 @@ textarea{
   margin-left: 15px;
   font-family: sans-serif;
 }
+/* #ratevalid,#wherevalid,#readvalid{
+  position: absolute;
+  top:50%;
+  right:20px;
+  height:100%;
+} */
+
+
 /******************************/
 /*********** review ***********/
 /******************************/
@@ -234,20 +310,13 @@ a.termcontent{
   border-radius: 2px;
   box-shadow: inset 0 -20px 20px #426c90;
 }
-#postreview:hover,#postreview:focus,#open:hover,#open:focus{
-  outline: none;
-  background-color: #aaa;
+#postreview:hover,#open:hover{
+  background-color: #2b455c;
   box-shadow: none;
 }
 /************************************/
 /************ overwrite *************/
 /************************************/
-#title h3{
-  font-family: "titles";
-  font-weight: lighter;
-  font-size: 22px;
-  margin: 15px 0 25px -5px;
-}
 .explaination{
   margin-top: 20px;
   font-family: sans-serif;
@@ -262,31 +331,35 @@ a.termcontent{
   background-color: #eee;
   color: #777;
 }
-#recyes:hover,#recno:hover{
+/* #recyes:hover,#recno:hover{
   border-color:#999;
   background-color: #ddd;
-}
-#recyes:focus,#recno:focus{
-  outline: none;
-}
+} */
 #recyes{
   border-right-width: 0;
   border-radius: 4px 0 0 4px;
+  font-weight: bold;
 }
 #recno{
   border-radius: 0 4px 4px 0;
 }
 
 
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.closecontainer{
+  position: absolute;
+  top:5px;
+  right:5px;
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+  background-color: #888;
 }
-.close:hover,
-.close:focus {
-  color: #000;
+.closecontainer:hover,.closecontainer:focus {
   text-decoration: none;
   cursor: pointer;
+  background-color: #444;
+}
+
+#emailvalidcontainer{
+  margin-top:27px;
 }

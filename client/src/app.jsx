@@ -9,8 +9,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       load: false,
-      item:"Say Hello to Ji's Little Friend %itemname",
-      seller:"Forest %seller",
+      item:"%itemname Say Hello to Ji's Little Friend%",
+      seller:"%seller Forest%",
       imgurl:"https://hsm.utimaco.com/wp-content/uploads/2017/09/Applications_Grey_RGB_Random_Number_Generation-300x300.png",
       fit: true
     };
