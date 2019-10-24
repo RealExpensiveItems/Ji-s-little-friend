@@ -17,4 +17,4 @@ app.listen(port, () => {
 //   res.status(200).send(":" + port + " is watching you");
 // });
 
-app.get("/modal/:type", ctrl.type);
+// app.get("/modal/:type", ctrl.type);

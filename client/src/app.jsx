@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import axios from "axios";
+// import axios from "axios";
 
 import Massage from "./massage";
 
@@ -19,16 +19,19 @@ class App extends React.Component {
     //API: get item name and img url and type
     //or inhert from the parent node
     var type="pants";
-    axios.get("/modal/"+type).then(
-      data => {
-        // console.log(data.data);
-        this.setState({
-          fit: data.data,
-          load: true
-        });
-      },
-      err => console.error(err)
-    );
+    // axios.get("/modal/"+type).then(
+    //   data => {
+    //     // console.log(data.data);
+    //     this.setState({
+    //       fit: data.data,
+    //       load: true
+    //     });
+    //   },
+    //   err => console.error(err)
+    // );
+    this.setState({
+      load: true
+    });
   }
   openModal(e){
     e.preventDefault();
