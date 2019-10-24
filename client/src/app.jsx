@@ -32,23 +32,23 @@ class App extends React.Component {
   }
   openModal(e){
     e.preventDefault();
-    document.getElementById("curtain").style.display = "block";
-    document.getElementById("modal").style.display = "block";
+    document.getElementById("FOREST-curtain").style.display = "block";
+    document.getElementById("FOREST-modal").style.display = "block";
   }
   render() {
     return (this.state.load ?
-      <div id = "base">
-        <div id="curtain"/>
-        <div id="modal">
-          <div id="sidebar">
-            <img id="itemImg" src={this.state.imgurl} />
-            <p id="itemInfo">{this.state.seller+" - "+this.state.item}</p>
+      <div id = "FOREST-base">
+        <div id="FOREST-curtain"/>
+        <div id="FOREST-modal">
+          <div id="FOREST-sidebar">
+            <img id="FOREST-itemImg" src={this.state.imgurl} />
+            <p id="FOREST-itemInfo">{this.state.seller+" - "+this.state.item}</p>
           </div>
           <Massage item={this.state.item} fit={this.state.fit}/>
         </div>
-        <button id="open" onClick={this.openModal.bind(this)}>Write a review</button>
+        <button id="FOREST-open" onClick={this.openModal.bind(this)}>Write a review</button>
       </div>
-      : <div className="box"></div>/* need a spinner here*/
+      : <div className="FOREST-box"></div>/* need a spinner here*/
     );
   }
 }

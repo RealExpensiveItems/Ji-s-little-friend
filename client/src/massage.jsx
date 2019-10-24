@@ -30,8 +30,8 @@ class Massage extends React.Component {
   }
   closeModal(e){
     e.preventDefault();
-    document.getElementById("curtain").style.display = "none";
-    document.getElementById("modal").style.display = "none";
+    document.getElementById("FOREST-curtain").style.display = "none";
+    document.getElementById("FOREST-modal").style.display = "none";
   }
   //////////
   //rating//
@@ -44,7 +44,7 @@ class Massage extends React.Component {
     if(i==="4"){var str="lawngreen";this.setState({rate:"Good"});}
     if(i==="5"){var str="green";this.setState({rate:"Excellent"});}
     for(var a=1;a<=5;a++)
-      document.getElementById("star"+a).style.backgroundColor = a<=i?str:"#eee";
+      document.getElementById("FOREST-star"+a).style.backgroundColor = a<=i?str:"#eee";
   }
   clickRating(e){this.setState({rating:e.currentTarget.getAttribute("value")});}
   hoverRating(e){this.coloringRating(e.currentTarget.getAttribute("value"));}
@@ -89,11 +89,11 @@ class Massage extends React.Component {
     }
     this.setState({reviewFocused:false});
   }
-  blackReview(){document.getElementById("reviewcontainer").style.borderColor="black";}
-  redReview(){document.getElementById("reviewcontainer").style.borderColor="crimson";}
+  blackReview(){document.getElementById("FOREST-reviewcontainer").style.borderColor="black";}
+  redReview(){document.getElementById("FOREST-reviewcontainer").style.borderColor="crimson";}
   recoverReview(){
-    document.getElementById("reviewcontainer").style.borderColor="#ccc";
-    document.getElementById("reviewcontainer").style.borderTopColor="#aaa";
+    document.getElementById("FOREST-reviewcontainer").style.borderColor="#ccc";
+    document.getElementById("FOREST-reviewcontainer").style.borderTopColor="#aaa";
   }
   /////////////
   //recommend//
@@ -103,8 +103,8 @@ class Massage extends React.Component {
     e.currentTarget.style.color="white";
     var i=e.currentTarget.getAttribute("value");
     this.setState({recommend:i});
-    if(i==="1")i="recno";
-    else i="recyes";
+    if(i==="1")i="FOREST-recno";
+    else i="FOREST-recyes";
     document.getElementById(i).style.borderColor="#ccc";
     document.getElementById(i).style.borderBottomColor="#999";
     document.getElementById(i).style.backgroundColor="#eee";
@@ -140,18 +140,20 @@ class Massage extends React.Component {
     if(e.target.value.length>0)this.setState({email:"1"});
     this.setState({emailBuffer:e.target.value});
   }
-
+  ///////
+  //fit//
+  ///////
   hdlFit(e){
-    var i=e.currentTarget.getAttribute("id").slice(3);
+    var i=e.currentTarget.getAttribute("id").slice(-1);
     for(var j=1;j<6;j++)
       if(j!==i)
-        document.getElementById("fit"+j).style.backgroundColor="#eee";
+        document.getElementById("FOREST-fit"+j).style.backgroundColor="#eee";
     e.currentTarget.style.backgroundColor="#ddd";
     this.setState({fit:i});
   }
   hoverFit(e){e.currentTarget.style.backgroundColor="#ddd";}
   leaveFit(e){
-    if(this.state.fit!==e.currentTarget.getAttribute("id").slice(3))
+    if(this.state.fit!==e.currentTarget.getAttribute("id").slice(-1))
       e.currentTarget.style.backgroundColor="#eee";
   }
 
@@ -183,28 +185,28 @@ class Massage extends React.Component {
   }
   render(){
     return(
-      <div id="massage">
+      <div id="FOREST-massage">
 
-        <div id="header" className="container">
+        <div id="FOREST-header" className="FOREST-container">
           <h3>{"My Review for "+this.props.item}</h3>
-          <p className="explaination">Required fields are marked with *</p>
+          <p className="FOREST-explaination">Required fields are marked with *</p>
 
-          <div className="closecontainer">
-            <img className="close" onClick={this.closeModal.bind(this)} src={require("../../db/assets/times.svg")}/>
+          <div className="FOREST-closecontainer">
+            <img className="FOREST-close" onClick={this.closeModal.bind(this)} src={require("../../db/assets/times.svg")}/>
           </div>
         </div>
 
-        <div id="rating" className="container">
+        <div id="FOREST-rating" className="FOREST-container">
           <h3 style={{color:this.state.rating==="-1"?"crimson":"black"}}>Product rating*</h3>
-          <div id="starcontainer">
-            <div id="stars">
+          <div id="FOREST-starcontainer">
+            <div id="FOREST-stars">
               {([1,2,3,4,5]).map((i)=>(
-              <div id={"star"+i} className="stars" value={i}
+              <div id={"FOREST-star"+i} className="FOREST-stars" value={i}
                 onMouseOver={this.hoverRating.bind(this)}
                 onClick={this.clickRating.bind(this)}
                 onMouseLeave={this.leaveRating.bind(this)}>
-                <img className="greystar" src={require("../../db/assets/star-grey.svg")}/>
-                <img className="whitestar" src={require("../../db/assets/star-white.svg")}/>
+                <img className="FOREST-greystar" src={require("../../db/assets/star-grey.svg")}/>
+                <img className="FOREST-whitestar" src={require("../../db/assets/star-white.svg")}/>
               </div>
               ))}
             </div>
@@ -212,33 +214,33 @@ class Massage extends React.Component {
           </div>
           {this.state.rating==="0"?<div/>
           :this.state.rating==="-1"
-          ?<div className="invalidcontainer">
-            <div className="invalidwrap">
-              <span className="invalidtext">Required&nbsp;</span>
-              <img className="invalidimg" src={require("../../db/assets/times.svg")}/>
+          ?<div className="FOREST-invalidcontainer">
+            <div className="FOREST-invalidwrap">
+              <span className="FOREST-invalidtext">Required&nbsp;</span>
+              <img className="FOREST-invalidimg" src={require("../../db/assets/times.svg")}/>
             </div>
           </div>
-          :<div className="validcontainer">
-            <div className="validwrap">
-              <img className="validimg" src={require("../../db/assets/tick.svg")}/>
+          :<div className="FOREST-validcontainer">
+            <div className="FOREST-validwrap">
+              <img className="FOREST-validimg" src={require("../../db/assets/tick.svg")}/>
             </div>
           </div>}
         </div>
 
-        <div className="container">
-          <div className="inlinewrap">
-            <h3 className="shorttitle" style={{color:this.state.title==="-1"?"crimson":"black"}}>Review title*</h3>
+        <div className="FOREST-container">
+          <div className="FOREST-inlinewrap">
+            <h3 className="FOREST-shorttitle" style={{color:this.state.title==="-1"?"crimson":"black"}}>Review title*</h3>
             {this.state.title==="0"?<div/>
             :this.state.title==="-1"
-            ?<div className="invalidcontainer inlineic">
-              <div className="invalidwrap">
-                <span className="invalidtext">Required&nbsp;</span>
-                <img className="invalidimg" src={require("../../db/assets/times.svg")}/>
+            ?<div className="FOREST-invalidcontainer FOREST-inlineic">
+              <div className="FOREST-invalidwrap">
+                <span className="FOREST-invalidtext">Required&nbsp;</span>
+                <img className="FOREST-invalidimg" src={require("../../db/assets/times.svg")}/>
               </div>
             </div>
-            :<div className="validcontainer inlinevc">
-              <div className="validwrap">
-                <img className="validimg" src={require("../../db/assets/tick.svg")}/>
+            :<div className="FOREST-validcontainer FOREST-inlinevc">
+              <div className="FOREST-validwrap">
+                <img className="FOREST-validimg" src={require("../../db/assets/tick.svg")}/>
               </div>
             </div>}
           </div>
@@ -247,27 +249,27 @@ class Massage extends React.Component {
             onChange={this.updateTitle.bind(this)}/>
         </div>
 
-        <div className="container">
-          <div className="inlinewrap">
-            <h3 className="shorttitle" style={{color:this.state.review==="-1"?"crimson":"black"}}>Review*</h3>
+        <div className="FOREST-container">
+          <div className="FOREST-inlinewrap">
+            <h3 className="FOREST-shorttitle" style={{color:this.state.review==="-1"?"crimson":"black"}}>Review*</h3>
             {this.state.review==="0"?<div/>
             :this.state.review==="-1"
-            ?<div className="invalidcontainer inlineic">
-              <div className="invalidwrap" style={{width:this.state.invalidReviewWidth}}>
-                <span className="invalidtext">{this.state.invalidReviewInfo}&nbsp;</span>
-                <img className="invalidimg" src={require("../../db/assets/times.svg")}/>
+            ?<div className="FOREST-invalidcontainer FOREST-inlineic">
+              <div className="FOREST-invalidwrap" style={{width:this.state.invalidReviewWidth}}>
+                <span className="FOREST-invalidtext">{this.state.invalidReviewInfo}&nbsp;</span>
+                <img className="FOREST-invalidimg" src={require("../../db/assets/times.svg")}/>
               </div>
             </div>
-            :<div className="validcontainer inlinevc">
-              <div className="validwrap">
-                <img className="validimg" src={require("../../db/assets/tick.svg")}/>
+            :<div className="FOREST-validcontainer FOREST-inlinevc">
+              <div className="FOREST-validwrap">
+                <img className="FOREST-validimg" src={require("../../db/assets/tick.svg")}/>
               </div>
             </div>}
           </div>
-          <div id="reviewcontainer"
+          <div id="FOREST-reviewcontainer"
             onMouseOver={this.hoverReview.bind(this)}
             onMouseLeave={this.leaveReview.bind(this)}>
-            <textarea rows="4" id="reviewarea"
+            <textarea rows="4" id="FOREST-reviewarea"
               onFocus={this.focusReview.bind(this)}
               onBlur={this.blurReview.bind(this)}
               onChange={this.updateReview.bind(this)}/>
@@ -276,43 +278,43 @@ class Massage extends React.Component {
           </div>
         </div>
 
-        <div id="recommend" className="container">
-          <div className="left">
+        <div id="FOREST-recommend" className="FOREST-container">
+          <div className="FOREST-left">
             <h3 style={{color:this.state.recommend==="-1"?"crimson":"black"}}>Would you recommend this product to a friend?</h3>
           </div>
-          <div className="right">
-            <button id="recyes" value="1"
+          <div className="FOREST-right">
+            <button id="FOREST-recyes" value="1"
               onClick={this.hdlRecommend.bind(this)}
               onMouseOver={this.hoverRecommend.bind(this)}
               onMouseLeave={this.leaveRecommend.bind(this)}>Yes</button>
-            <button id="recno" value="2"
+            <button id="FOREST-recno" value="2"
               onClick={this.hdlRecommend.bind(this)}
               onMouseOver={this.hoverRecommend.bind(this)}
               onMouseLeave={this.leaveRecommend.bind(this)}>No</button>
           </div>
           {this.state.recommend==="0"?<div/>:
-          <div className="validcontainer">
-            <div className="validwrap">
-              <img className="validimg" src={require("../../db/assets/tick.svg")}/>
+          <div className="FOREST-validcontainer">
+            <div className="FOREST-validwrap">
+              <img className="FOREST-validimg" src={require("../../db/assets/tick.svg")}/>
             </div>
           </div>}
         </div>
 
-        <div className="container">
-          <div className="left">
-            <div className="inlinewrap">
-              <h3 className="shorttitle" style={{color:this.state.nickname==="-1"?"crimson":"black"}}>Nickname*</h3>
+        <div className="FOREST-container">
+          <div className="FOREST-left">
+            <div className="FOREST-inlinewrap">
+              <h3 className="FOREST-shorttitle" style={{color:this.state.nickname==="-1"?"crimson":"black"}}>Nickname*</h3>
               {this.state.nickname==="0"?<div/>
               :this.state.nickname==="-1"
-              ?<div className="invalidcontainer inlineic">
-                <div className="invalidwrap">
-                  <span className="invalidtext">Required&nbsp;</span>
-                  <img className="invalidimg" src={require("../../db/assets/times.svg")}/>
+              ?<div className="FOREST-invalidcontainer FOREST-inlineic">
+                <div className="FOREST-invalidwrap">
+                  <span className="FOREST-invalidtext">Required&nbsp;</span>
+                  <img className="FOREST-invalidimg" src={require("../../db/assets/times.svg")}/>
                 </div>
               </div>
-              :<div className="validcontainer inlinevc">
-                <div className="validwrap">
-                  <img className="validimg" src={require("../../db/assets/tick.svg")}/>
+              :<div className="FOREST-validcontainer FOREST-inlinevc">
+                <div className="FOREST-validwrap">
+                  <img className="FOREST-validimg" src={require("../../db/assets/tick.svg")}/>
                 </div>
               </div>}
             </div>
@@ -320,13 +322,13 @@ class Massage extends React.Component {
               onBlur={this.blurNickname.bind(this)}
               onChange={this.updateNickname.bind(this)}/>
           </div>
-          <div className="right">
-            <div className="inlinewrap">
-              <h3 className="shorttitle">Location</h3>
+          <div className="FOREST-right">
+            <div className="FOREST-inlinewrap">
+              <h3 className="FOREST-shorttitle">Location</h3>
               {this.state.location==="0"?<div/>:
-              <div className="validcontainer inlinevc">
-                <div className="validwrap">
-                  <img className="validimg" src={require("../../db/assets/tick.svg")}/>
+              <div className="FOREST-validcontainer FOREST-inlinevc">
+                <div className="FOREST-validwrap">
+                  <img className="FOREST-validimg" src={require("../../db/assets/tick.svg")}/>
                 </div>
               </div>}
             </div>
@@ -334,58 +336,58 @@ class Massage extends React.Component {
           </div>
         </div>
 
-        <div id="email" className="container">
-          <div className="left">
-            <h3 className="shorttitle" style={{color:this.state.email==="-1"?"crimson":"black"}}>Email*</h3>
+        <div id="FOREST-email" className="FOREST-container">
+          <div className="FOREST-left">
+            <h3 className="FOREST-shorttitle" style={{color:this.state.email==="-1"?"crimson":"black"}}>Email*</h3>
             <input placeholder="Example: youremail@example.com" value={this.state.emailBuffer}
               onBlur={this.blurEmail.bind(this)}
               onChange={this.updateEmail.bind(this)}/>
            </div>
           {this.state.email==="0"?<div/>
           :this.state.email==="-1"
-          ?<div id="emailvalidcontainer" className="invalidcontainer">
-            <div className="invalidwrap">
-              <span className="invalidtext">Required&nbsp;</span>
-              <img className="invalidimg" src={require("../../db/assets/times.svg")}/>
+          ?<div id="FOREST-emailvalidcontainer" className="FOREST-invalidcontainer">
+            <div className="FOREST-invalidwrap">
+              <span className="FOREST-invalidtext">Required&nbsp;</span>
+              <img className="FOREST-invalidimg" src={require("../../db/assets/times.svg")}/>
             </div>
           </div>
-          :<div className="validcontainer">
-            <div className="validwrap">
-              <img className="validimg" src={require("../../db/assets/tick.svg")}/>
+          :<div className="FOREST-validcontainer">
+            <div className="FOREST-validwrap">
+              <img className="FOREST-validimg" src={require("../../db/assets/tick.svg")}/>
             </div>
           </div>}
         </div>
 
         {this.props.fit?
-        <div id="fit" className="container">
-          <div className="left">
+        <div id="FOREST-fit" className="FOREST-container">
+          <div className="FOREST-left">
             <h3>Fit</h3>
           </div>
-          <div className="right">
+          <div className="FOREST-right">
             {[1,2,3,4,5].map((i)=>(
-            <div id={"fit"+i} className="inputcontainer"
+            <div id={"FOREST-fit"+i} className="FOREST-inputcontainer"
               onClick={this.hdlFit.bind(this)}
               onMouseOver={this.hoverFit.bind(this)}
               onMouseLeave={this.leaveFit.bind(this)}>
               <div style={{"background-color":this.state.fit===i.toString()?"blue":"white"}} className="radio"/>
             </div>))}
             <p>Runs Small</p>
-            <p id="runlarge">Runs Large</p>
+            <p id="FOREST-runlarge">Runs Large</p>
           </div>
           {this.state.fit==="0"?<div/>:
-          <div className="validcontainer">
-            <div className="validwrap">
-              <img className="validimg" src={require("../../db/assets/tick.svg")}/>
+          <div className="FOREST-validcontainer">
+            <div className="FOREST-validwrap">
+              <img className="FOREST-validimg" src={require("../../db/assets/tick.svg")}/>
             </div>
           </div>}
         </div>
-        :<div className="box"/>}
+        :<div className="FOREST-box"/>}
 
-        <div id="read" className="container">
-          <div className="left">
+        <div id="FOREST-read" className="FOREST-container">
+          <div className="FOREST-left">
             <h3>Did you read product reviews online before first purchasing this item?</h3>
           </div>
-          <div className="right">
+          <div className="FOREST-right">
             <select onChange={this.hdlRead.bind(this)}>
               <option>Select</option>
               <option>Yes</option>
@@ -393,18 +395,18 @@ class Massage extends React.Component {
             </select>
           </div>
           {this.state.read==="0"?<div/>:
-          <div className="validcontainer">
-            <div className="validwrap">
-              <img className="validimg" src={require("../../db/assets/tick.svg")}/>
+          <div className="FOREST-validcontainer">
+            <div className="FOREST-validwrap">
+              <img className="FOREST-validimg" src={require("../../db/assets/tick.svg")}/>
             </div>
           </div>}
         </div>
 
-        <div id="where" className="container">
-          <div className="left">
+        <div id="FOREST-where" className="FOREST-container">
+          <div className="FOREST-left">
             <h3>Where did you purchase the product?</h3>
           </div>
-          <div className="right">
+          <div className="FOREST-right">
             <select onChange={this.hdlWhere.bind(this)}>
               <option>Select</option>
               <option>Online</option>
@@ -412,50 +414,50 @@ class Massage extends React.Component {
             </select>
           </div>
           {this.state.where==="0"?<div/>:
-          <div className="validcontainer">
-            <div className="validwrap">
-              <img className="validimg" src={require("../../db/assets/tick.svg")}/>
+          <div className="FOREST-validcontainer">
+            <div className="FOREST-validwrap">
+              <img className="FOREST-validimg" src={require("../../db/assets/tick.svg")}/>
             </div>
           </div>}
         </div>
 
-        <div className="container">
-          <div className="inlinewrap">
+        <div className="FOREST-container">
+          <div className="FOREST-inlinewrap">
             <h3>What feedback do you have for the people who designed and manufactured this product?</h3>
             {this.state.feedback==="0"?<div/>:
-            <div className="validcontainer inlinevc">
-              <div className="validwrap">
-                 <img className="validimg" src={require("../../db/assets/tick.svg")}/>
+            <div className="FOREST-validcontainer FOREST-inlinevc">
+              <div className="FOREST-validwrap">
+                 <img className="FOREST-validimg" src={require("../../db/assets/tick.svg")}/>
               </div>
             </div>}
           </div>
           <textarea rows="4" onBlur={this.hdlFeedback.bind(this)}/>
         </div>
 
-        <div id="post" className="container">
-          <div className="inlinewrap">
-            <div className="termcontainer">
-              <input className="termcontent" type="checkbox"
+        <div id="FOREST-post" className="FOREST-container">
+          <div className="FOREST-inlinewrap">
+            <div className="FOREST-termcontainer">
+              <input className="FOREST-termcontent" type="checkbox"
                 onClick={this.hdlTerm.bind(this)}/>
               </div>
-            <div className="termcontainer"><label className="termcontent">I agree to the</label></div>
-            <div className="termcontainer"><a  className="termcontent" href="#">{"terms & conditions"}</a></div>
+            <div className="FOREST-termcontainer"><label className="FOREST-termcontent">I agree to the</label></div>
+            <div className="FOREST-termcontainer"><a  className="FOREST-termcontent" href="#">{"terms & conditions"}</a></div>
             {this.state.term==="0"?<div/>
             :this.state.term==="-1"
-            ?<div className="invalidcontainer inlineic">
-              <div className="invalidwrap">
-                <span className="invalidtext">Required&nbsp;</span>
-                <img className="invalidimg" src={require("../../db/assets/times.svg")}/>
+            ?<div className="FOREST-invalidcontainer FOREST-inlineic">
+              <div className="FOREST-invalidwrap">
+                <span className="FOREST-invalidtext">Required&nbsp;</span>
+                <img className="FOREST-invalidimg" src={require("../../db/assets/times.svg")}/>
               </div>
             </div>
-            :<div className="validcontainer inlinevc">
-              <div className="validwrap">
-                <img className="validimg" src={require("../../db/assets/tick.svg")}/>
+            :<div className="FOREST-validcontainer FOREST-inlinevc">
+              <div className="FOREST-validwrap">
+                <img className="FOREST-validimg" src={require("../../db/assets/tick.svg")}/>
               </div>
             </div>}
           </div>          
-          <p className="explaination">You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.</p>
-          <button id="postreview" onClick={this.onPost.bind(this)}>Post review</button>
+          <p className="FOREST-explaination">You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.</p>
+          <button id="FOREST-postreview" onClick={this.onPost.bind(this)}>Post review</button>
         </div>
       </div>
     );
